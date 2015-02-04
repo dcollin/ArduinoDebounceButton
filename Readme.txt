@@ -1,0 +1,1 @@
+A simple c++ library for Arduino that abstracts one debounced push button on one digital pin
