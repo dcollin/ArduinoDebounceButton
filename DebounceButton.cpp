@@ -1,6 +1,5 @@
 #include "DebounceButton.h"
 #include "limits.h"
-
 DebounceButton::DebounceButton(uint8_t pin, uint8_t mode, bool push, uint8_t delay) : pin(pin), debounceDelay(delay), lastStateChangeTime(millis()), lastState(!push), pushState(push) {    
     pinMode(pin, mode);
 }
@@ -8,20 +7,6 @@ DebounceButton::DebounceButton(uint8_t pin, uint8_t mode, bool push, uint8_t del
 bool DebounceButton::getPush(){
     const bool pinState = digitalRead(pin);
     return isStateChanged(pinState) && (pinState == pushState);
-}
-
-bool DebounceButton::getRelease(){
-    const bool pinState = digitalRead(pin);
-    return isStateChanged(pinState) && (pinState != pushState);
-}
-
-bool DebounceButton::getButtonState(){
-    const bool pinState = digitalRead(pin);
-    if(isStateChanged(pinState)){
-        return pinState;
-    }else{
-        return lastState;
-    }
 }
 
 bool DebounceButton::isStateChanged(const bool pinState){

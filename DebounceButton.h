@@ -24,16 +24,6 @@ public:
     */
     bool getPush();
     
-    /**
-    * @return - True if the button is released, else false
-    */
-    bool getRelease();
-    
-    /**
-    * @return - The current button state (LOW/HIGH)
-    */
-    bool getButtonState();
-    
 private:
 
     /**

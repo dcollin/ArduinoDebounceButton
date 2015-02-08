@@ -11,22 +11,16 @@
 *********************************************************************/
 
 #define buttonPin   10
-#define ledPin      13
 
 DebounceButton button = DebounceButton(buttonPin);
 
 void setup(){
     Serial.begin(9600);
     Serial.println("###SimpleDebounceButton example###");
-    pinMode(ledPin, OUTPUT);
 };
 
 void loop(){
-    bool push = button.getPush();
-    if(push){
+    if(button.getPush()){
         Serial.println("Push button pressed");
-    }else{
-        Serial.println("Push button released");
     }
-    digitalWrite(ledPin, push);
 };
